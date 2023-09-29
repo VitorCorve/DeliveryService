@@ -4,6 +4,7 @@ using DeliveryService.Context.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DeliveryService.Context.Migrations
 {
     [DbContext(typeof(DeliveryServiceContext))]
-    partial class DeliveryServiceContextModelSnapshot : ModelSnapshot
+    [Migration("20230929110000_M6RelationChanges")]
+    partial class M6RelationChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

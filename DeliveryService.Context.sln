@@ -3,9 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryService.Context", "DeliveryService.Context\DeliveryService.Context.csproj", "{23D7B241-CB47-42DF-A31B-2465367F397C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliveryService.Context", "DeliveryService.Context\DeliveryService.Context.csproj", "{23D7B241-CB47-42DF-A31B-2465367F397C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryService.API", "DeliveryService.API\DeliveryService.API.csproj", "{F37EAB1A-4D45-41D7-B863-31957A203A31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliveryService.API", "DeliveryService.API\DeliveryService.API.csproj", "{F37EAB1A-4D45-41D7-B863-31957A203A31}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliveryService.ApiAssistant", "DeliveryService.ApiAssistant\DeliveryService.ApiAssistant.csproj", "{8EBD7519-427D-406C-BACD-54667F3631EA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliveryService.Console", "DeliveryService.Console\DeliveryService.Console.csproj", "{672C3EFE-667F-46D4-AA38-768C3B2D7E78}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliveryService.Client", "DeliveryService.Client\DeliveryService.Client.csproj", "{7CE7F472-E171-4E6E-83B0-BF1F0F58ABD8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{69336432-1894-47E6-A3D9-F6B578A71B4A}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +32,18 @@ Global
 		{F37EAB1A-4D45-41D7-B863-31957A203A31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F37EAB1A-4D45-41D7-B863-31957A203A31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F37EAB1A-4D45-41D7-B863-31957A203A31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EBD7519-427D-406C-BACD-54667F3631EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EBD7519-427D-406C-BACD-54667F3631EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EBD7519-427D-406C-BACD-54667F3631EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EBD7519-427D-406C-BACD-54667F3631EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{672C3EFE-667F-46D4-AA38-768C3B2D7E78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{672C3EFE-667F-46D4-AA38-768C3B2D7E78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{672C3EFE-667F-46D4-AA38-768C3B2D7E78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{672C3EFE-667F-46D4-AA38-768C3B2D7E78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CE7F472-E171-4E6E-83B0-BF1F0F58ABD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CE7F472-E171-4E6E-83B0-BF1F0F58ABD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CE7F472-E171-4E6E-83B0-BF1F0F58ABD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CE7F472-E171-4E6E-83B0-BF1F0F58ABD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

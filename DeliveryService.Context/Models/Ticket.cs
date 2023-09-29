@@ -16,13 +16,15 @@ namespace DeliveryService.Context.Models
         public int CustomerId { get; set; }
         public int? CourierId { get; set; }
         public DELIVERY_STATUS Status { get; set; }
-        public DateTime RequestedDeliveryDate { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime Updated { get; set; }
+        public DateTime? Completed { get; set; }
         public string? Commentary { get; set; }
         public bool IsClosed { get; set; }
 
         [ForeignKey(nameof(CustomerId))]
         [InverseProperty("Tickets")]
-        public Customer Customer { get; set; }
+        public Customer? Customer { get; set; }
 
         [ForeignKey(nameof(CourierId))]
         [InverseProperty("Tickets")]

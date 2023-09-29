@@ -4,6 +4,7 @@ using DeliveryService.Context.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DeliveryService.Context.Migrations
 {
     [DbContext(typeof(DeliveryServiceContext))]
-    partial class DeliveryServiceContextModelSnapshot : ModelSnapshot
+    [Migration("20230928125937_M2PackageChanges")]
+    partial class M2PackageChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,6 +63,12 @@ namespace DeliveryService.Context.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PackageId"));
 
+                    b.Property<int?>("CourierId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("DateCollected")
                         .HasColumnType("datetime2");
 
@@ -73,10 +82,6 @@ namespace DeliveryService.Context.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("GatheringAddress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("RequestedDeliveryDate")
                         .HasColumnType("datetime2");
 
@@ -84,6 +89,10 @@ namespace DeliveryService.Context.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("PackageId");
+
+                    b.HasIndex("CourierId");
+
+                    b.HasIndex("CustomerId");
 
                     b.HasIndex("TicketId");
 
@@ -101,14 +110,8 @@ namespace DeliveryService.Context.Migrations
                     b.Property<string>("Commentary")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("Completed")
-                        .HasColumnType("datetime2");
-
                     b.Property<int?>("CourierId")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
@@ -118,9 +121,6 @@ namespace DeliveryService.Context.Migrations
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("Updated")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("TicketId");
 
@@ -133,11 +133,25 @@ namespace DeliveryService.Context.Migrations
 
             modelBuilder.Entity("DeliveryService.Context.Models.Package", b =>
                 {
+                    b.HasOne("DeliveryService.Context.Models.Courier", "Courier")
+                        .WithMany("Packages")
+                        .HasForeignKey("CourierId");
+
+                    b.HasOne("DeliveryService.Context.Models.Customer", "Customer")
+                        .WithMany("Packages")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("DeliveryService.Context.Models.Ticket", "Ticket")
                         .WithMany("Packages")
                         .HasForeignKey("TicketId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Courier");
+
+                    b.Navigation("Customer");
 
                     b.Navigation("Ticket");
                 });
@@ -161,11 +175,15 @@ namespace DeliveryService.Context.Migrations
 
             modelBuilder.Entity("DeliveryService.Context.Models.Courier", b =>
                 {
+                    b.Navigation("Packages");
+
                     b.Navigation("Tickets");
                 });
 
             modelBuilder.Entity("DeliveryService.Context.Models.Customer", b =>
                 {
+                    b.Navigation("Packages");
+
                     b.Navigation("Tickets");
                 });
 

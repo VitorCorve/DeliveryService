@@ -8,7 +8,6 @@ namespace DeliveryService.Context.Models
         public Customer()
         {
             Tickets = new HashSet<Ticket>();
-            Packages = new HashSet<Package>();
         }
 
         [Key]
@@ -17,8 +16,5 @@ namespace DeliveryService.Context.Models
 
         [InverseProperty(nameof(Ticket.Customer))]
         public IEnumerable<Ticket> Tickets { get; set; }
-
-        [InverseProperty(nameof(Package.Customer))]
-        public IEnumerable<Package> Packages { get; set; }
     }
 }
